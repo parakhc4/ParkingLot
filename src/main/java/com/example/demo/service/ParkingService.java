@@ -5,6 +5,7 @@ import com.example.demo.enums.ParkingSpotStatus;
 import com.example.demo.enums.PaymentType;
 import com.example.demo.enums.VehicleType;
 import com.example.demo.model.*;
+import java.util.*;
 
 
 public class ParkingService {
@@ -12,6 +13,11 @@ public class ParkingService {
 
     public ParkingService(ParkingLot parkingLot){
         this.parkingLot = parkingLot;
+    }
+
+
+    public List viewVehicles(ParkingLot lot){
+        return lot.getSpots();
     }
 
     public Ticket parkVehicle(Vehicle vehicle){

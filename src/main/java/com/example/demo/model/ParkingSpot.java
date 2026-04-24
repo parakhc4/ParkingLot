@@ -1,21 +1,22 @@
 package com.example.demo.model;
-import java.util.Objects;
 import com.example.demo.enums.*;
+
+import java.util.*;
 
 public class ParkingSpot {
     private int id;
     private VehicleType supportedType;
     private ParkingSpotStatus status;
     private Vehicle currentVehicle;
+    private Random r = new Random();
 
     public ParkingSpot() {
     }
 
-    public ParkingSpot(int id, VehicleType supportedType, ParkingSpotStatus status, Vehicle currentVehicle) {
-        this.id = id;
+    public ParkingSpot(VehicleType supportedType) {
+        this.id = r.nextInt(10);
         this.supportedType = supportedType;
-        this.status = status;
-        this.currentVehicle = currentVehicle;
+        this.status = ParkingSpotStatus.FREE;
     }
 
     public int getId() {

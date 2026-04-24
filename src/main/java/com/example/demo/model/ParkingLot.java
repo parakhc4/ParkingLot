@@ -10,7 +10,7 @@ public class ParkingLot {
     public ParkingLot() {
     }
 
-    public ParkingLot(List<ParkingSpot> spots, ParkingAvailabilityStatus status) {
+    public ParkingLot(List<ParkingSpot> spots) {
         this.spots = spots;
         this.status = ParkingAvailabilityStatus.AVAILABLE;
     }
@@ -35,7 +35,13 @@ public class ParkingLot {
     }
 
     public List<ParkingSpot> getSpots() {
-        return this.spots;
+        List<ParkingSpot> activeList = new ArrayList<>();
+        for (ParkingSpot obj:this.spots){
+            if (obj.getStatus()==ParkingSpotStatus.OCCUPIED){
+                activeList.add(obj);
+            }
+        }
+        return activeList;
     }
 
     public void setSpots(List<ParkingSpot> spots) {
